@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Rajnish Thakur</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css.css">
+    <style>
+        .pricing-header { text-align: center; padding: 6rem 2rem 3rem; }
+        .pricing-header h1 { font-size: 4rem; margin-bottom: 1rem; }
+        .pricing-header p { font-size: 1.25rem; max-width: 600px; margin: 0 auto; color: var(--text-secondary); }
+        
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 2rem; padding: 2rem; max-width: 1200px; margin: 0 auto; }
+        .price-card { padding: 3rem; text-align: center; position: relative; }
+        .price-card h3 { font-size: 2rem; margin-bottom: 1rem; }
+        .price-card .price { font-size: 3.5rem; font-weight: 800; margin-bottom: 2rem; color: #111; }
+        .price-card ul { text-align: left; margin-bottom: 3rem; }
+        .price-card ul li { margin-bottom: 1rem; color: var(--text-secondary); display: flex; align-items: center; gap: 10px; }
+        .price-card ul li i { color: var(--accent-blue); }
+        
+        .form-section { padding: 4rem 2rem; max-width: 800px; margin: 0 auto; }
+        .form-control { background: #fff; border: 1px solid var(--card-border); padding: 15px 20px; border-radius: 12px; margin-bottom: 1.5rem; width: 100%; font-family: "Inter", sans-serif; font-size: 1rem; }
+        .form-control:focus { outline: none; border-color: var(--accent-blue); box-shadow: 0 0 0 4px rgba(0,87,255,0.1); }
+    </style>
+</head>
+<body>
+<!-- Announcement Bar (Top) -->
+<div class="announcement-bar">
+    <div class="cta-text">
+        🚀 Available for Freelance Projects • Call/WhatsApp:
+    </div>
+    <a href="tel:+919452451655" class="contact-btn">
+        <i class="fa-solid fa-phone"></i> +91 9452451655
+    </a>
+    <a href="https://wa.me/919452451655" class="contact-btn wa-btn" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+    </a>
+</div>
+
+<!-- Navbar -->
+<div class="navbar-glass">
+    <nav class="tabs">
+        <div class="htext">
+            <h1>Portfolio.</h1>
+        </div>
+        <div class="navtext d-none d-md-flex align-items-center" id="navbar-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#whatido">What I do</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="basic_price.html">Price</a>
+            <a href="https://creanext.in/" style="color: #0057FF !important; font-weight: 700;">CreaNext</a>
+            <a href="contect.html"><button class="btn-premium">Contact Us</button></a>
+        </div>
+        <div class="ham d-md-none"><i id="ham" class="fa-solid fa-bars"></i></div>
+    </nav>
+    <div id="mobile-menu" class="mobile-menu" style="display:none;">
+        <a href="index.html">Home</a>
+        <a href="index.html#whatido">What I do</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="basic_price.html">Price</a>
+        <a href="https://creanext.in/" style="color: #0057FF !important; font-weight: 700;">CreaNext</a>
+        <a href="contect.html" style="border:none;"><button class="btn-premium w-100">Contact Us</button></a>
+    </div>
+</div>
+
+<div class="bgcontainer">
+    <div class="pricing-header reveal-on-scroll">
+        <h1>Transparent Pricing.</h1>
+        <p>Premium creative services designed to elevate your brand to the next level.</p>
+    </div>
+    
+    <div class="pricing-grid">
+        <div class="premium-card price-card reveal-on-scroll">
+            <h3>Thumbnail Design</h3>
+            <div class="price">Custom</div>
+            <ul>
+                <li><i class="fa-solid fa-check"></i> High-CTR Designs</li>
+                <li><i class="fa-solid fa-check"></i> 2 Iterations</li>
+                <li><i class="fa-solid fa-check"></i> YouTube Algorithm Optimized</li>
+                <li><i class="fa-solid fa-check"></i> Source Files</li>
+            </ul>
+            <a href="#booking" style="text-decoration:none;"><button class="button-86 w-100">Book Service</button></a>
+        </div>
+        
+        <div class="premium-card price-card reveal-on-scroll" style="border: 2px solid var(--accent-blue); transform: scale(1.05);">
+            <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--accent-blue); color: #fff; padding: 5px 15px; border-radius: 100px; font-size: 0.85rem; font-weight: 600;">Most Popular</div>
+            <h3>Video Editing</h3>
+            <div class="price">Custom</div>
+            <ul>
+                <li><i class="fa-solid fa-check"></i> Engaging Cuts & Pacing</li>
+                <li><i class="fa-solid fa-check"></i> Dynamic Captions</li>
+                <li><i class="fa-solid fa-check"></i> Color Grading & VFX</li>
+                <li><i class="fa-solid fa-check"></i> Sound Design</li>
+            </ul>
+            <a href="#booking" style="text-decoration:none;"><button class="button-86 btn-accent-blue w-100">Book Service</button></a>
+        </div>
+        
+        <div class="premium-card price-card reveal-on-scroll">
+            <h3>Web Development</h3>
+            <div class="price">Custom</div>
+            <ul>
+                <li><i class="fa-solid fa-check"></i> Responsive Gen-Z UI</li>
+                <li><i class="fa-solid fa-check"></i> Custom Animations</li>
+                <li><i class="fa-solid fa-check"></i> Landing Pages & Portfolios</li>
+                <li><i class="fa-solid fa-check"></i> SEO Ready</li>
+            </ul>
+            <a href="#booking" style="text-decoration:none;"><button class="button-86 w-100">Book Service</button></a>
+        </div>
+    </div>
+    
+    <div class="form-section reveal-on-scroll" id="booking">
+        <h2 style="text-align: center; margin-bottom: 2rem;">Start a Project</h2>
+        <div class="premium-card" style="padding: 3rem;">
+            <form id="price-form">
+                <input id="pf-name" class="form-control" type="text" required placeholder="Full Name">
+                <input id="pf-phone" class="form-control" type="text" required placeholder="WhatsApp Number">
+                <p style="margin-bottom: 10px; font-weight: 500; color: #111;">I am interested in:</p>
+                <div style="display: flex; gap: 20px; margin-bottom: 2rem;">
+                    <label style="display: flex; align-items: center; gap: 8px;"><input type="checkbox" value="Video Editing"> Video Editing</label>
+                    <label style="display: flex; align-items: center; gap: 8px;"><input type="checkbox" value="Thumbnail Design"> Thumbnail Design</label>
+                    <label style="display: flex; align-items: center; gap: 8px;"><input type="checkbox" value="Web Dev"> Web Dev</label>
+                </div>
+                <button type="button" onclick="sendPriceToWhatsApp()" class="button-86 btn-accent-purple w-100">Submit Request</button>
+            </form>
+            <script>
+                function sendPriceToWhatsApp() {
+                    let name = document.getElementById('pf-name').value;
+                    let phone = document.getElementById('pf-phone').value;
+                    if(!name || !phone) {
+                        alert("Please fill in your name and WhatsApp number.");
+                        return;
+                    }
+                    let selected = Array.from(document.querySelectorAll('#price-form input[type="checkbox"]:checked')).map(cb => cb.value).join(', ');
+                    if(!selected) selected = "None specified";
+                    let text = `Hello Rajnish, I am interested in starting a project!\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Interested in:* ${selected}`;
+                    let url = "https://wa.me/919452451655?text=" + encodeURIComponent(text);
+                    window.open(url, '_blank');
+                }
+            </script>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Rajnish Thakur. All Rights Reserved. Designed with minimal precision.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
+

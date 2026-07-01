@@ -1,0 +1,507 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajnish Thakur - Premium Creative Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css.css">
+    <style>
+        .hero { min-height: 75vh; display: flex; align-items: center; justify-content: center; text-align: left; padding: 4rem 2rem 2rem; position: relative; }
+        .hero-content { display: flex; align-items: center; justify-content: space-between; max-width: 1400px; width: 100%; gap: 3rem; }
+        .hero-text { flex: 1; }
+        .hero-text h2 { font-size: 1.1rem; font-weight: 500; color: var(--text-secondary); margin-bottom: 0.25rem; }
+        .hero-text h1 { font-size: clamp(2.2rem, 4vw, 3rem); line-height: 1.1; margin-bottom: 0.25rem; letter-spacing: -0.03em; background: linear-gradient(135deg, #111 0%, #555 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-text p { font-size: 1.05rem; line-height: 1.6; color: var(--text-secondary); max-width: 600px; margin-bottom: 2rem; }
+        .hero-image { flex: 1; text-align: center; position: relative; }
+        .hero-image img { width: 100%; max-width: 450px; border-radius: 32px; filter: drop-shadow(0 24px 48px rgba(0,0,0,0.1)); }
+        
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 2rem; padding: 2rem; max-width: 1400px; margin: 0 auto; }
+        .stat-card { text-align: center; padding: 3rem; background: var(--bg-primary); border-radius: 24px; box-shadow: inset 0 0 0 1px var(--card-border); }
+        .stat-card h3 { font-size: 3.5rem; margin-bottom: 1rem; background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .featured { padding: 4rem 2rem; max-width: 1400px; margin: 0 auto; }
+        .featured-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; }
+        .featured-header h2 { font-size: 3rem; margin: 0; }
+        
+        .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr)); gap: 2rem; }
+        
+        @media (max-width: 991px) {
+            .hero-content { flex-direction: column-reverse; text-align: center; margin-top: 2rem; }
+            .hero-text h1 { font-size: 3.5rem; }
+            .hero-text p { margin: 0 auto 3rem; }
+            .featured-header { flex-direction: column; align-items: flex-start; gap: 2rem; }
+        }
+    </style>
+</head>
+<body>
+<!-- Entry Modal -->
+<div id="entry-modal" class="entry-modal-overlay">
+    <div class="entry-modal-content">
+        <h2>Welcome</h2>
+        <p>Please enter your details before loading this page.</p>
+        <input type="text" id="visitor-name" class="modal-input" placeholder="Enter your full name">
+        <input type="tel" id="visitor-phone" class="modal-input" placeholder="Enter your phone number (e.g. 9876543210)">
+        <p id="modal-error" class="modal-input-error">Please enter valid details to continue.</p>
+        <div class="modal-buttons">
+            <button class="modal-btn-primary" onclick="handleEntry('index.html')">Main Page</button>
+            <button class="modal-btn-secondary" onclick="handleEntry('portfolio.html')">Portfolio</button>
+            <button class="modal-btn-secondary" onclick="handleEntry('#courses')">Course</button>
+        </div>
+    </div>
+</div>
+<!-- Announcement Bar (Top) -->
+<div class="announcement-bar">
+    <div class="cta-text">
+        🚀 Available for Freelance Projects • Call/WhatsApp:
+    </div>
+    <a href="tel:+919452451655" class="contact-btn">
+        <i class="fa-solid fa-phone"></i> +91 9452451655
+    </a>
+    <a href="https://wa.me/919452451655" class="contact-btn wa-btn" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+    </a>
+</div>
+
+<!-- Elfsight WhatsApp Chat | Untitled WhatsApp Chat -->
+<script src="https://static.elfsight.com/platform/platform.js" async></script>
+<div class="elfsight-app-c670268c-3042-4765-abee-80aaaba9afec" data-elfsight-app-lazy></div>
+
+<!-- Navbar -->
+<div class="navbar-glass">
+    <nav class="tabs">
+        <div class="htext">
+            <h1>Portfolio.</h1>
+        </div>
+        <div class="navtext d-none d-md-flex align-items-center" id="navbar-links">
+            <a href="index.html">Home</a>
+            <a href="#whatido">What I do</a>
+            <a href="#courses">Courses</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="basic_price.html">Price</a>
+            <a href="https://creanext.in/" style="color: #0057FF !important; font-weight: 700;">CreaNext</a>
+            <a href="contect.html"><button class="btn-premium">Contact Us</button></a>
+        </div>
+        <div class="ham d-md-none"><i id="ham" class="fa-solid fa-bars"></i></div>
+    </nav>
+    <div id="mobile-menu" class="mobile-menu" style="display:none;">
+        <a href="index.html">Home</a>
+        <a href="#whatido">What I do</a>
+        <a href="#courses">Courses</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="basic_price.html">Price</a>
+        <a href="https://creanext.in/" style="color: #0057FF !important; font-weight: 700;">CreaNext</a>
+        <a href="contect.html" style="border:none;"><button class="btn-premium w-100">Contact Us</button></a>
+    </div>
+</div>
+
+<!-- Skills Marquee -->
+<div class="marquee-container reveal-on-scroll">
+    <div class="marquee-content">
+        <!-- Set 1 -->
+        <span><i class="fa-brands fa-html5"></i> HTML5</span>
+        <span><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+        <span><i class="fa-brands fa-js"></i> JavaScript</span>
+        <span><i class="fa-brands fa-python"></i> Python</span>
+        <span><i class="fa-brands fa-java"></i> Java</span>
+        <span><i class="fa-solid fa-video"></i> Adobe Premiere Pro</span>
+        <span><i class="fa-solid fa-image"></i> Adobe Photoshop</span>
+        <span><i class="fa-solid fa-film"></i> DaVinci Resolve</span>
+        <span><i class="fa-solid fa-clapperboard"></i> Lightworks</span>
+        <span><i class="fa-solid fa-microphone"></i> Audacity</span>
+        <span><i class="fa-solid fa-photo-film"></i> Video Editing</span>
+        <span><i class="fa-regular fa-image"></i> Thumbnail Design</span>
+        <span><i class="fa-solid fa-pen-nib"></i> Graphic Design</span>
+        <span><i class="fa-solid fa-code"></i> Web Development</span>
+        <span><i class="fa-solid fa-bolt"></i> Content Creation</span>
+        <!-- Set 2 (Duplicate for seamless loop) -->
+        <span><i class="fa-brands fa-html5"></i> HTML5</span>
+        <span><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+        <span><i class="fa-brands fa-js"></i> JavaScript</span>
+        <span><i class="fa-brands fa-python"></i> Python</span>
+        <span><i class="fa-brands fa-java"></i> Java</span>
+        <span><i class="fa-solid fa-video"></i> Adobe Premiere Pro</span>
+        <span><i class="fa-solid fa-image"></i> Adobe Photoshop</span>
+        <span><i class="fa-solid fa-film"></i> DaVinci Resolve</span>
+        <span><i class="fa-solid fa-clapperboard"></i> Lightworks</span>
+        <span><i class="fa-solid fa-microphone"></i> Audacity</span>
+        <span><i class="fa-solid fa-photo-film"></i> Video Editing</span>
+        <span><i class="fa-regular fa-image"></i> Thumbnail Design</span>
+        <span><i class="fa-solid fa-pen-nib"></i> Graphic Design</span>
+        <span><i class="fa-solid fa-code"></i> Web Development</span>
+        <span><i class="fa-solid fa-bolt"></i> Content Creation</span>
+    </div>
+</div>
+
+<div class="bgcontainer">
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-text reveal-on-scroll">
+                <h1 style="text-transform: uppercase; white-space: nowrap; font-size: clamp(2rem, 6vw, 3.5rem);">Rajnish Thakur</h1>
+                <div class="typing-container" style="margin-bottom: 1.5rem;">
+                    <span id="typing-text"></span><span class="cursor">&nbsp;</span>
+                </div>
+                
+                <div style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 2.5rem; max-width: 650px;">
+                    <p style="margin-bottom: 1rem;">I am a Freelancer, Video Editor, Thumbnail Designer, Graphic Designer, and Web Developer passionate about creating engaging digital experiences and impactful online brands.</p>
+                    <p>Over the years, I have worked with top Instagram influencers reaching 700K+ followers and contributed to YouTube channels with more than 60K+ subscribers. My expertise spans video editing, content optimization, creative design, and modern website development.</p>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="portfolio.html"><button class="button-86 btn-accent-blue">View Portfolio</button></a>
+                    <a href="RAJNISH RESUME.pdf"><button class="button-86" style="background: transparent; color: #111; box-shadow: inset 0 0 0 2px #111;">Resume</button></a>
+                </div>
+            </div>
+            <div class="hero-image reveal-on-scroll">
+                <img src="rajnish.jpg" alt="Rajnish Thakur" style="background: var(--text-primary); padding: 5px; border-radius: 36px; box-shadow: 0 15px 40px rgba(0,0,0,0.2);">
+            </div>
+        </div>
+    </div>
+
+    <!-- Dedicated Skills Section -->
+    <div class="skills-section">
+        <div class="skills-section-header reveal-on-scroll">
+            <h2>Skills & Expertise</h2>
+            <p>The premium tools and technologies I use to bring ideas to life.</p>
+        </div>
+        <div class="skills-layout">
+            <div class="skill-category reveal-on-scroll">
+                <h3><i class="fa-solid fa-code"></i> Programming</h3>
+                <ul class="skill-list">
+                    <li><i class="fa-brands fa-html5"></i> HTML5</li>
+                    <li><i class="fa-brands fa-css3-alt"></i> CSS3</li>
+                    <li><i class="fa-brands fa-js"></i> JavaScript</li>
+                    <li><i class="fa-brands fa-python"></i> Python</li>
+                    <li><i class="fa-brands fa-java"></i> Java</li>
+                </ul>
+            </div>
+            <div class="skill-category reveal-on-scroll">
+                <h3><i class="fa-solid fa-palette"></i> Creative Skills</h3>
+                <ul class="skill-list">
+                    <li><i class="fa-solid fa-video"></i> Video Editing</li>
+                    <li><i class="fa-regular fa-image"></i> Thumbnail Design</li>
+                    <li><i class="fa-solid fa-pen-nib"></i> Graphic Design</li>
+                    <li><i class="fa-solid fa-laptop-code"></i> Web Development</li>
+                    <li><i class="fa-solid fa-bolt"></i> Content Creation</li>
+                </ul>
+            </div>
+            <div class="skill-category reveal-on-scroll">
+                <h3><i class="fa-solid fa-screwdriver-wrench"></i> Software & Tools</h3>
+                <ul class="skill-list">
+                    <li><i class="fa-solid fa-film"></i> Adobe Premiere Pro</li>
+                    <li><i class="fa-solid fa-image"></i> Adobe Photoshop</li>
+                    <li><i class="fa-solid fa-compact-disc"></i> DaVinci Resolve</li>
+                    <li><i class="fa-solid fa-clapperboard"></i> Lightworks</li>
+                    <li><i class="fa-solid fa-microphone"></i> Audacity</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid" id="whatido">
+        <div class="stat-card reveal-on-scroll">
+            <h3>15+</h3>
+            <p>Happy Clients</p>
+        </div>
+        <div class="stat-card reveal-on-scroll">
+            <h3>5M+</h3>
+            <p>Views Generated</p>
+        </div>
+        <div class="stat-card reveal-on-scroll">
+            <h3>3+</h3>
+            <p>Years Experience</p>
+        </div>
+    </div>
+
+    <!-- Featured Previews -->
+    <div class="featured">
+        <div class="featured-header reveal-on-scroll">
+            <div>
+                <h2>Featured Work</h2>
+                <p>A glimpse into my premium creative services.</p>
+            </div>
+            <a href="portfolio.html"><button class="button-86">View Full Portfolio</button></a>
+        </div>
+        
+        <div class="work-grid">
+            <a href="portfolio.html" class="genz-card reveal-on-scroll" style="text-decoration: none;">
+                <img src="thumb1.jpg" alt="Thumbnail Design">
+                <div class="card-overlay">
+                    <span class="genz-tag">🖼️ Thumbnail Design</span>
+                </div>
+            </a>
+            <a href="portfolio.html" class="genz-card reveal-on-scroll" style="text-decoration: none;">
+                <video autoplay muted loop playsinline>
+                    <source src="fav.mp4" type="video/mp4">
+                </video>
+                <div class="card-overlay">
+                    <span class="genz-tag">🎬 Video Editing</span>
+                </div>
+            </a>
+            <a href="portfolio.html" class="genz-card reveal-on-scroll" style="text-decoration: none;">
+                <video autoplay muted loop playsinline>
+                    <source src="reel1.mp4" type="video/mp4">
+                </video>
+                <div class="card-overlay">
+                    <span class="genz-tag">📱 Shorts & Reels</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Premium Courses Section -->
+<section id="courses" class="courses-section">
+    <div class="courses-header reveal-on-scroll">
+        <h2>Premium Creative Courses</h2>
+        <p>Master the art of video editing and graphic design with industry-standard tools.</p>
+    </div>
+
+    <!-- Video Editing -->
+    <div class="course-category">
+        <h3 class="course-category-title reveal-on-scroll">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-plain.svg" alt="Premiere Pro"> 
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/DaVinci_Resolve_17_logo.svg" alt="DaVinci Resolve" style="height:35px;">
+            Video Editing Courses
+        </h3>
+        <div class="pricing-grid">
+            <!-- Basics -->
+            <div class="pricing-card reveal-on-scroll">
+                <div class="pricing-tier">Basics</div>
+                <div class="pricing-price">₹500<span> / class</span></div>
+                <ul class="pricing-features">
+                    <li><i class="fa-solid fa-check"></i> Basics of editing software</li>
+                    <li><i class="fa-solid fa-check"></i> Basic tool usage</li>
+                    <li><i class="fa-solid fa-check"></i> UI navigation & setup</li>
+                </ul>
+                <button onclick="openCourseModal('Video Editing - Basics')" class="pricing-btn">Enroll Now</button>
+            </div>
+            <!-- Moderate -->
+            <div class="pricing-card popular reveal-on-scroll">
+                <div class="popular-tag">Most Popular</div>
+                <div class="pricing-tier">Moderate</div>
+                <div class="pricing-price">₹899<span> / class</span></div>
+                <ul class="pricing-features">
+                    <li><i class="fa-solid fa-check"></i> Everything in Basics</li>
+                    <li><i class="fa-solid fa-check"></i> Main video editing techniques</li>
+                    <li><i class="fa-solid fa-check"></i> Types of editing styles</li>
+                    <li><i class="fa-solid fa-check"></i> Workflow optimization</li>
+                </ul>
+                <button onclick="openCourseModal('Video Editing - Moderate')" class="pricing-btn">Enroll Now</button>
+            </div>
+            <!-- Advance -->
+            <div class="pricing-card reveal-on-scroll">
+                <div class="pricing-tier">Advance</div>
+                <div class="pricing-price">₹1299<span> / class</span></div>
+                <ul class="pricing-features">
+                    <li><i class="fa-solid fa-check"></i> Everything in Moderate</li>
+                    <li><i class="fa-solid fa-check"></i> Advanced Premiere Pro mastery</li>
+                    <li><i class="fa-solid fa-check"></i> Complex timelines & multicam</li>
+                    <li><i class="fa-solid fa-check"></i> Color grading & audio design</li>
+                </ul>
+                <button onclick="openCourseModal('Video Editing - Advance')" class="pricing-btn">Enroll Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Photoshop -->
+    <div class="course-category">
+        <h3 class="course-category-title reveal-on-scroll">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="Photoshop">
+            Photoshop Editing Course
+        </h3>
+        <div class="pricing-grid">
+            <!-- Basics -->
+            <div class="pricing-card reveal-on-scroll">
+                <div class="pricing-tier">Basics</div>
+                <div class="pricing-price">₹899<span> / class</span></div>
+                <ul class="pricing-features">
+                    <li><i class="fa-solid fa-check"></i> Photoshop UI & navigation</li>
+                    <li><i class="fa-solid fa-check"></i> Understanding layers & masks</li>
+                    <li><i class="fa-solid fa-check"></i> Basic tool uses</li>
+                </ul>
+                <button onclick="openCourseModal('Photoshop - Basics')" class="pricing-btn">Enroll Now</button>
+            </div>
+            <!-- Advance -->
+            <div class="pricing-card reveal-on-scroll">
+                <div class="pricing-tier">Advance</div>
+                <div class="pricing-price">₹1899<span> / class</span></div>
+                <ul class="pricing-features">
+                    <li><i class="fa-solid fa-check"></i> Everything in Basics</li>
+                    <li><i class="fa-solid fa-check"></i> Advanced thumbnail creation</li>
+                    <li><i class="fa-solid fa-check"></i> Professional poster design</li>
+                    <li><i class="fa-solid fa-check"></i> Creative ideation & composition</li>
+                </ul>
+                <button onclick="openCourseModal('Photoshop - Basics')" class="pricing-btn">Enroll Now</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Creators, Brands & Organizations I've Worked With -->
+<div class="trust-section">
+    <div class="trust-section-inner">
+        <div class="trust-header reveal-on-scroll">
+            <h2>🔥 Creators & Brands I've Worked With</h2>
+            <p>Trusted by creators, influencers, educational platforms, and growing digital brands.</p>
+        </div>
+        
+        <div class="trust-stats-row reveal-on-scroll">
+            <div class="trust-stat-pill"><i class="fa-solid fa-check"></i> 700K+ Audience Reach</div>
+            <div class="trust-stat-pill"><i class="fa-solid fa-check"></i> Multiple Creators Served</div>
+            <div class="trust-stat-pill"><i class="fa-solid fa-check"></i> Educational & Tech Niches</div>
+            <div class="trust-stat-pill"><i class="fa-solid fa-check"></i> Video Editing Expertise</div>
+            <div class="trust-stat-pill"><i class="fa-solid fa-check"></i> Web Development & Design</div>
+        </div>
+
+        <div class="partner-grid-layout">
+            <!-- First Row: 2 Cards -->
+            <div class="partner-row">
+                <!-- Classical Shubha -->
+                <div class="partner-card reveal-on-scroll">
+                    <div class="partner-avatar-wrapper">
+                        <!-- USER: Add the real image here by replacing 'classicalshubha.jpg' with the actual file -->
+                        <img class="partner-avatar-img" src="classicalshubha.jpg" alt="Classical Shubha Profile">
+                    </div>
+                    <h3>Classical Shubha <i class="fa-solid fa-circle-check verification-badge"></i></h3>
+                    <div class="partner-platform"><i class="fa-brands fa-instagram"></i> Instagram • Video Creator</div>
+                    <div class="partner-stats">
+                        <div class="partner-stat-box">
+                            <span class="partner-stat-val">64K+</span>
+                            <span class="partner-stat-label">Followers</span>
+                        </div>
+                        <div class="partner-stat-box">
+                            <span class="partner-stat-val">837+</span>
+                            <span class="partner-stat-label">Posts</span>
+                        </div>
+                    </div>
+                    <p class="partner-desc">Provided premium video editing, content support, and direct creator assistance to scale their musical content.</p>
+                    <a href="https://www.instagram.com/classicalshubha/" target="_blank" class="partner-btn">Visit Profile</a>
+                </div>
+
+                <!-- Photography Clic -->
+                <div class="partner-card reveal-on-scroll">
+                    <div class="partner-avatar-wrapper">
+                        <!-- USER: Add the real image here by replacing 'photographyclic.jpg' with the actual file -->
+                        <img class="partner-avatar-img" src="photographyclic.jpg" alt="Photography Clic Profile">
+                    </div>
+                    <h3>Photography Clic <i class="fa-solid fa-circle-check verification-badge"></i></h3>
+                    <div class="partner-platform"><i class="fa-brands fa-instagram"></i> Instagram • Photographer</div>
+                    <div class="partner-stats">
+                        <div class="partner-stat-box">
+                            <span class="partner-stat-val">812K+</span>
+                            <span class="partner-stat-label">Followers</span>
+                        </div>
+                        <div class="partner-stat-box">
+                            <span class="partner-stat-val">6,776</span>
+                            <span class="partner-stat-label">Posts</span>
+                        </div>
+                    </div>
+                    <p class="partner-desc">Delivered high-quality video editing, content creation, and creative support for their photography business.</p>
+                    <a href="https://www.instagram.com/photographycliclucknow/" target="_blank" class="partner-btn">Visit Profile</a>
+                </div>
+            </div>
+
+            <!-- Second Row: 3 Cards -->
+            <div class="partner-row">
+                <!-- StudyIQ -->
+                <div class="partner-card reveal-on-scroll">
+                    <div class="partner-avatar-wrapper">
+                        <!-- USER: Add the real image here by replacing 'studyiq.png' with the actual file -->
+                        <img class="partner-avatar-img" src="studyiq.png" alt="StudyIQ Profile">
+                    </div>
+                    <h3>StudyIQ <i class="fa-solid fa-circle-check verification-badge"></i></h3>
+                    <div class="partner-platform"><i class="fa-solid fa-globe"></i> Educational Brand</div>
+                    <div class="partner-stats">
+                        <div class="partner-stat-box">
+                            <span class="partner-stat-val">Millions</span>
+                            <span class="partner-stat-label">Reach</span>
+                        </div>
+                        <div class="partner-stat-box">
+                            <span class="partner-stat-val">EdTech</span>
+                            <span class="partner-stat-label">Niche</span>
+                        </div>
+                    </div>
+                    <p class="partner-desc">Supported their massive platform through educational video editing and robust digital content assistance.</p>
+                    <a href="https://www.studyiq.com/" target="_blank" class="partner-btn">Visit Website</a>
+                </div>
+
+                <!-- GenZTech07 -->
+                <div class="partner-card reveal-on-scroll">
+                    <div class="partner-avatar-wrapper">
+                        <!-- USER: Add the real image here by replacing 'genztech07.jpg' with the actual file -->
+                        <img class="partner-avatar-img" src="genztech07.jpg" alt="GenZTech07 Profile">
+                    </div>
+                    <h3>GenZTech07 <i class="fa-solid fa-circle-check verification-badge"></i></h3>
+                    <div class="partner-platform"><i class="fa-brands fa-youtube"></i> YouTube • Tech Creator</div>
+                    <div class="partner-stats">
+                        <div class="partner-stat-box">
+                            <span class="partner-stat-val">60K+</span>
+                            <span class="partner-stat-label">Subs</span>
+                        </div>
+                        <div class="partner-stat-box">
+                            <span class="partner-stat-val">Tech</span>
+                            <span class="partner-stat-label">Niche</span>
+                        </div>
+                    </div>
+                    <p class="partner-desc">Executed end-to-end YouTube video editing, content optimization, and full creator support.</p>
+                    <a href="https://www.youtube.com/@GenZTech07/videos" target="_blank" class="partner-btn">Visit Channel</a>
+                </div>
+
+                <!-- Tejas NCC Army -->
+                <div class="partner-card reveal-on-scroll">
+                    <div class="partner-avatar-wrapper">
+                        <!-- USER: Add the real image here by replacing 'tejasncc.jpg' with the actual file -->
+                        <img class="partner-avatar-img" src="tejasncc.jpg" alt="Tejas NCC Army Profile">
+                    </div>
+                    <h3>Tejas NCC Army <i class="fa-solid fa-circle-check verification-badge"></i></h3>
+                    <div class="partner-platform"><i class="fa-brands fa-youtube"></i> YouTube • Brand</div>
+                    <div class="partner-stats">
+                        <div class="partner-stat-box">
+                            <span class="partner-stat-val">Growing</span>
+                            <span class="partner-stat-label">Subs</span>
+                        </div>
+                        <div class="partner-stat-box">
+                            <span class="partner-stat-val">Defense</span>
+                            <span class="partner-stat-label">Niche</span>
+                        </div>
+                    </div>
+                    <p class="partner-desc">Produced and edited YouTube videos, optimized Shorts & Reels, and provided strategic creator support.</p>
+                    <a href="https://www.youtube.com/@TejasNCCArmy" target="_blank" class="partner-btn">Visit Channel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>� 2026 Rajnish Thakur. All Rights Reserved. Designed with minimal precision.</p>
+</footer>
+
+<!-- Course Enrollment Modal -->
+<div id="course-modal" class="entry-modal-overlay hidden">
+    <div class="entry-modal-content" style="max-height: 90vh; overflow-y: auto;">
+        <h2>Enroll in Course</h2>
+        <p>Please enter your details to enroll.</p>
+        <input type="text" id="course-visitor-name" class="modal-input" placeholder="Enter your full name">
+        <input type="tel" id="course-visitor-phone" class="modal-input" placeholder="Enter your phone number">
+        <input type="email" id="course-visitor-email" class="modal-input" placeholder="Enter your email address">
+        <input type="text" id="course-selection" class="modal-input" placeholder="Course selected" readonly style="background: #f5f5f7; color: #555;">
+        <textarea id="course-visitor-message" class="modal-input" placeholder="Any message? (Optional)" style="resize: vertical; min-height: 80px; font-family: inherit;"></textarea>
+        <p id="course-modal-error" class="modal-input-error">Please fill out all required fields.</p>
+        <div class="modal-buttons">
+            <button class="modal-btn-primary" onclick="submitCourseEnrollment()">Submit Request</button>
+            <button class="modal-btn-secondary" onclick="closeCourseModal()">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
+
